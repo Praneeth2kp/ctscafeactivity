@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const BirdsSchema=new mongoose.Schema({
+const birdsSchema=new mongoose.Schema({
     name:{
         type: String,
         required:'This field is Required.'
@@ -12,4 +12,9 @@ const BirdsSchema=new mongoose.Schema({
 
 });
 
-module.exports=mongoose.model('Birds', BirdsSchema);
+
+const birds=mongoose.model('birds', birdsSchema);
+
+module.exports = birds;
+
+

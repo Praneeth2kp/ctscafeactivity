@@ -1,10 +1,14 @@
 const express=require('express');
 const router=express.Router();
-const birdsControllers=require('../controllers/birdsControllers');
+const CommonControllers=require('../controllers/Controllers');
 
 
 // App routes
-router.get('/',birdsControllers.homepage);
+router.get('/',CommonControllers.homepage);
+// router.get('/',CommonControllers.plants);
+router.get('/birds',CommonControllers.birds);
+// router.get('/',CommonControllers.nature);
+
 
 
 
