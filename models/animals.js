@@ -5,11 +5,6 @@ const animalsSchema=new mongoose.Schema({
         type: String,
         required:'This field is Required.'
     },
-    id:{
-        type: String,
-        required: 'This field is Required.'
-
-    },
     image:{
         type: String,
         required:'This field is Required.'

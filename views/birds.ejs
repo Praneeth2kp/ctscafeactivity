@@ -34,13 +34,15 @@
                     <img src="/images/<%- bird.image %>" alt="<%- bird.name %>" class="image" loading="lazy">
                 <% }) %>
             <% } %>
+            
         </div>
         <div class="right-column">
             <% if (birds != '') { %>
-                <% birds.slice(2, 4).forEach(function(bird, index) { %>
+                <% birds.slice(2,4).forEach(function(bird, index) { %>
                     <img src="/images/<%- bird.image %>" alt="<%- bird.name %>" class="image" loading="lazy">
                 <% }) %>
             <% } %>
+            
         </div>
     </div>
 </body>

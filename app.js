@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const animals = require('./models/animals');
 const birds = require('./models/birds');
+const nature=require('./models/nature');
+const plants=require('./models/plants');
 const config = require('./config.json');
 
 const port = process.env.PORT || 5051;
@@ -21,18 +23,19 @@ app.get('/', async (req, res) => {
       res.render('index', { title: 'Random Images - Animals', Animals: randomImages });
     } 
     else if (currentDate >= config.collectionDates.birds.startDate && currentDate <= config.collectionDates.birds.endDate) {
-      // Load plants collection
+      // Load Birds collection
       const randomImages = await birds.aggregate([{ $sample: { size:4 }}]).exec();
       res.render('birds', { title: 'Random Images - birds', birds: randomImages });
     } 
     else if (currentDate >= config.collectionDates.plants.startDate && currentDate <= config.collectionDates.plants.endDate) {
-      // Load birds collection
-      // const randomImages = ...
-      // res.render('index', { title: 'Random Images - Birds', Animals: randomImages });
-    } else if (currentDate >= config.collectionDates.nature.startDate && currentDate <= config.collectionDates.nature.endDate) {
+      // Load plants collection
+      const randomImages = await plants.aggregate([{ $sample : {size: 4}}]).exec();
+      res.render('plants', { title: 'Random Images - plants', plants: randomImages });
+    }
+    else if (currentDate >= config.collectionDates.nature.startDate && currentDate <= config.collectionDates.nature.endDate) {
       // Load nature collection
-    //   const randomImages = ...;
-    //   res.render('index', { title: 'Random Images - Nature', Animals: randomImages });
+      const randomImages = await nature.aggregate([{ $sample: { size:4 }}]).exec();;
+      res.render('nature', { title: 'Random Images - Nature', nature: randomImages });
     } else {
      res.status(404).send('No collection active today');
    } 
@@ -43,6 +46,7 @@ app.get('/', async (req, res) => {
 });
 
 const routes = require('./routes/birdsRoute.js');
+
 app.use('/', routes);
 
 app.listen(port, () => {

@@ -12,4 +12,6 @@ const natureSchema=new mongoose.Schema({
 
 });
 
-module.exports=mongoose.model('nature', natureSchema);
+const nature=mongoose.model('nature', natureSchema);
+
+module.exports = nature;

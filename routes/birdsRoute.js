@@ -4,10 +4,10 @@ const CommonControllers=require('../controllers/Controllers');
 
 
 // App routes
-router.get('/',CommonControllers.homepage);
-// router.get('/',CommonControllers.plants);
+router.get('/',CommonControllers.animals);
+router.get('/plants',CommonControllers.plants);
 router.get('/birds',CommonControllers.birds);
-// router.get('/',CommonControllers.nature);
+router.get('/nature',CommonControllers.nature);
 
 
 
