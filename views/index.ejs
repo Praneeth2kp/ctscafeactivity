@@ -29,16 +29,16 @@
 <body>
     <div class="container">
         <div class="left-column">
-            <% if (Animals != '') { %>
-                <% Animals.slice(0, 2).forEach(function(Animal, index) { %>
-                    <img src="/images/<%- Animal.image %>" alt="<%- Animal.name %>" class="image" loading="lazy">
+            <% if (animals != '') { %>
+                <% animals.slice(0, 2).forEach(function(animal, index) { %>
+                    <img src="/images/<%- animal.image %>" alt="<%- animal.name %>" class="image" loading="lazy">
                 <% }) %>
             <% } %>
         </div>
         <div class="right-column">
-            <% if (Animals != '') { %>
-                <% Animals.slice(2, 4).forEach(function(Animal, index) { %>
-                    <img src="/images/<%- Animal.image %>" alt="<%- Animal.name %>" class="image" loading="lazy">
+            <% if (animals != '') { %>
+                <% animals.slice(2, 4).forEach(function(animal, index) { %>
+                    <img src="/images/<%- animal.image %>" alt="<%- animal.name %>" class="image" loading="lazy">
                 <% }) %>
             <% } %>
         </div>

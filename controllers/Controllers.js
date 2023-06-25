@@ -21,8 +21,8 @@ const nature=require('../models/nature');
 exports.animals=async(req,res)=>{
     try {
         const limitNumber=20;
-        const Animals=await animals.find({}).limit(limitNumber);
-        res.render('index', { title:"Ad Load",Animals });
+        const animals=await animals.find({}).limit(limitNumber);
+        res.render('index', { title:"Ad Load",animals });
     } catch (error) {
         res.status(500).send({message: error.message || "Error Occured"});
     }

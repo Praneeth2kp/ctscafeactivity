@@ -16,11 +16,11 @@ app.set('view engine', 'ejs');
 
 app.get('/', async (req, res) => {
   try {
-    const currentDate = moment().format('YYYY-MM-DD');
+    const currentDate = moment().format('YYYY-MM-DDTHH:mm:ss');
     
     if (currentDate >= config.collectionDates.animals.startDate && currentDate <= config.collectionDates.animals.endDate) {
       const randomImages = await animals.aggregate([{ $sample: { size: 4 } }]).exec();
-      res.render('index', { title: 'Random Images - Animals', Animals: randomImages });
+      res.render('index', { title: 'Random Images - Animals', animals: randomImages });
     } 
     else if (currentDate >= config.collectionDates.birds.startDate && currentDate <= config.collectionDates.birds.endDate) {
       // Load Birds collection
